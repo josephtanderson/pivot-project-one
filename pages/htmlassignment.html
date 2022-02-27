@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="../style/htmlassignment.css">
+  <link rel="stylesheet" href="../style/nav-bar.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Assignment</title>
+</head>
+<body>
+<header>
+  <nav class="navbar navbar-expand-lg row navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navcollapse">
+        <img class="navbar-toggler-icon button-img" src="../photos/josephheadshotsq.jpg" alt="Joseph Anderson Photo">
+        <span class="first">JOSEPH<span class="last">ANDERSON</span></span>
+    </button>
+    <div class="col-sm-12 col-md-6 align-items-center navbar-brand collapse navbar-collapse photo-wrapper">
+        <img class="nav-img" src="../photos/josephheadshotsq.jpg" alt="Joseph Anderson Photo">
+        <h1 class="first">JOSEPH<span class="last">ANDERSON</span></h1>
+    </div>
+    <div class="col-sm-12 col-md-6 align-items-center collapse navbar-collapse nav-links" id="navcollapse">
+        <a class="nav-link nav-button" href="../pages/home.html">Home</a>
+        <a class="nav-link nav-button" href="../pages/htmlassignment.html">Portfolio</a>
+        <a class="nav-link nav-button" href="../pages/profile-card.html">About</a>
+        <a class="nav-link nav-button" href="https://www.linkedin.com/in/josephtanderson" target="_blank">Contact Me</a>
+    </div>
+  </nav>
+</header>
+<div class="container">
+  <div class="survey-header">
+    <img src="https://fontmeme.com/permalink/220131/76dc9ba3179563e4382c270cb2c0133e.png" alt="star-wars-font" class="survey-logo">
+  </div>
+  <div class="row">
+  <div class="col-12 col-md-6 col-lg-4 main-page">
+    <form>
+    <fieldset>
+      <legend>
+        Name
+      </legend>
+      <div>
+        Name: <input type="text" placeholder="First Name, Last Name">
+      </div>
+      <div>
+        Today's Date:
+        <input type="date">
+      </div>
+    </fieldset>
+    </form>
+  </div>
+  <div class="col-12 col-md-6 col-lg-4 text-input">
+    <div>
+      What is your Favorite Movie?
+    </div>
+    <input type="text" list="movies" placeholder="Episode V" style="width: 200px" />
+    <datalist id="movies">
+      <option value="Episode I">
+      <option value="Episode II">
+      <option value="Episode III">
+      <option value="Episode IV">
+      <option value="Episode V">
+      <option value="Episode VI">
+      <option value="Episode VII">
+      <option value="Episode VIII">
+      <option value="Episode IX">
+    </datalist>
+  </div>
+  <div class="col-12 col-md-12 col-lg-4 radio">
+    <div class="radio-text">
+      If you were in the Star Wars universe what side would you be on?
+    </div>
+    <div class="radio-rebel">
+      <input type="radio" id="Rebels" name="answers" value="Rebels" checked="true" class="radio-rebels">
+      <label for="Rebels" class="radio-rebels">
+        Rebels
+      </label>
+    </div>
+    <div>
+      <input type="radio" id="Empire" name="answers" value="Empire" class="radio-empire">
+      <label for="Empire" class="radio-empire">
+        Empire
+      </label>
+    </div>
+    <div>
+      <input type="radio" id="Jedi" name="answers" value="Jedi">
+      <label for="Jedi" class="radio-jedi">
+        Jedi
+      </label>
+    </div>
+    <div>
+      <input type="radio" id="Sith" name="answers" value="Sith">
+      <label for="Sith" class="radio-sith">
+        Sith
+      </label>
+    </div>
+  </div>
+  <div class="submit-button">
+    <button type="submit">
+      Submit
+    </button>
+  </div>
+</div>
+</div>
+<footer class="container-fluid footer">
+  <div class="footer-social">
+      <a href="https://github.com/josephtanderson" target="_blank">
+          <div class="col-4 github">
+              GITHUB
+          </div>
+      </a>
+      <a href="https://www.linkedin.com/in/josephtanderson/" target="_blank">
+          <div class="col-4 linked-in">
+              LINKEDIN
+          </div>
+      </a>
+      <a href="mailto:josephtanderson91@gmail.com" target="_blank">
+          <div class="col-4 email">
+              EMAIL
+          </div>
+      </a>
+      </div>
+  </div>
+  <div class="row col-12 justify-content-center copyright">
+      Ⓒ 2022
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>

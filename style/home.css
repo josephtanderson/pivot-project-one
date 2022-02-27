@@ -1,0 +1,8 @@
+.splash-bg {
+    min-height: calc(100vh - 126px);
+    background-color: blue;
+}
+
+.navigation {
+    position: sticky;
+}

@@ -1,0 +1,195 @@
+*{
+    --light-color: #E1FFFF;
+    --accent-color: #FE5D26;
+    --dark-color: #050203;
+    --bright-color: #00EDDA;
+    --bg-color: #334557;
+    /* --light-color: #e6ded7;
+    --accent-color: #2A9D8F;
+    --dark-color: #050203;
+    --bright-color: #E9C46A;
+    --bg-color: #264653; */
+    --border: 3px solid var(--dark-color);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.navigation {
+    margin: 0;
+    width:100%;
+    background-color: var(--bg-color);
+    color: var(--light-color);
+    border-bottom: 5px solid var(--bright-color);
+    justify-content: space-evenly;
+}
+
+.photo-wrapper {
+    justify-content: center;
+    height: 66px;
+    display: flex;
+    margin: auto;
+}
+
+.nav-img {
+    margin: 2px 0px;
+    border-radius: 50%;
+    height:100%;
+}
+
+button {
+    border: 1px solid var(--bg-color);
+}
+
+.navbar-toggler {
+    justify-content: center;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.button-img{
+    height: 66px;
+    width: 66px;
+    border-radius: 50%;
+}
+
+.first {
+    padding: 3px;
+    margin-top: 10px;
+    font-family: Titillium web;
+    color: var(--light-color);
+    font-weight: 700;   
+}
+
+.last {
+    color: var(--bright-color)
+}
+
+.nav-links {
+    /* height: 70px; */
+    width: auto;
+    margin-top: 8px;
+    padding: 15px 20px;
+}
+
+.nav-button{
+    text-align: center;
+    color: var(--light-color);
+    text-decoration: none;
+    font-family: Titillium web;
+    border: 2px solid var(--bg-color);
+    font-size: 16px;
+    margin: 15px;
+    padding: 5px 10px;
+    box-shadow: none;
+    transition: color 3s, border 3s, box-shadow 3s;
+}
+
+.nav-button:hover {
+    color: var(--accent-color);
+    border: 2px solid #ffe8e0;
+    box-shadow: 0px 0px 10px 5px #fe5b2580;
+    transition: 1s ease;
+}
+
+.footer{
+ background-color: var(--bg-color);
+ border-top: 5px solid var(--bright-color);
+ height: 200px;
+ width: 100%;
+}
+
+.footer a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--bright-color);
+    font-family: Titillium web;
+    transition: 1s ease;
+}
+
+.footer a:hover{
+    color: var(--accent-color);
+    transition: 1s ease;
+}
+
+.footer-social{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.github {
+    margin-top: 25px;
+    height: 75px;
+    width: 75px;
+    border:3px solid var(--light-color);
+    color: var(--bright-color);
+    font-size: 14px;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 10px 5px #00edda30;
+    border-radius: 0px;
+    transition: color 3s, border 3s, border-radius 3s, box-shadow 3s;
+}
+.github:hover {
+    border: 3px solid #ffe8e0;
+    color: var(--accent-color);
+    border-radius: 50%;
+    transition: 0.75s ease;
+    box-shadow: 0px 0px 10px 10px #fe5b2580;
+}
+.linked-in{
+    margin: 25px;
+    height: 75px;
+    width: 75px;
+    border:3px solid var(--light-color);
+    color: var(--bright-color);
+    font-size: 13px;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 10px 5px #00edda30;
+    transition: color 3s, border 3s, border-radius 3s, box-shadow 3s;
+}
+
+.linked-in:hover {
+    border: 3px solid #ffe8e0;
+    color: var(--accent-color);
+    border-radius: 50%;
+    transition: 0.75s ease;
+    box-shadow: 0px 0px 10px 10px #fe5b2580;
+}
+
+.email {
+    margin-top: 25px;
+    height: 75px;
+    width: 75px;
+    border:3px solid var(--light-color);
+    color: var(--bright-color);
+    font-size: 14px;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 10px 5px #00edda30;
+    transition: color 3s, border 3s, border-radius 3s, box-shadow 3s;
+}
+.email:hover{
+    border: 3px solid #ffe8e0;
+    color: var(--accent-color);
+    border-radius: 50%;
+    transition: 0.75s ease;
+    box-shadow: 0px 0px 10px 10px #fe5b2580;
+}
+
+.copyright {
+    padding-bottom: 20px;
+    color: var(--light-color)
+}
