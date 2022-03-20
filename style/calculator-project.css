@@ -60,7 +60,6 @@ body{
 .output .previous-operand {
     margin: 1rem 1rem 0;
     color: #ddd;
-    min
     font-size: 1.5rem;
 }
 .output .current-operand {
