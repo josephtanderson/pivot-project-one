@@ -121,9 +121,17 @@ const calculator = (() => {
     operator = "";
     }
 
+    const simplifyNumber = (num) => {
+        let num = num.split('.').map(x => x.split(''));
+        for (let i=0; i<num[0].length; i+=3)
+        num[0].splice
+    }
+
+
     const updateDisplay = () => {
         prev.textContent = previousOutput;
         curr.textContent = previousOperand.toString() +" "+operator+" "+currentOperandTextEle;
+
     };
 
 
