@@ -49,6 +49,7 @@ const calculator = (() => {
         }
     }
     const chooseOperation = (op) => {
+        if (!currentOperandTextEle && !previousOutput) {return;}
         if (operator) {compute()};
         if (currentOperandTextEle) {
                 previousOperand = Number(currentOperandTextEle);
@@ -57,6 +58,7 @@ const calculator = (() => {
         operator = op;
     }
     const square = () => {
+        if (!currentOperandTextEle && !previousOutput) {return;}
         if (operator) {compute()};
         if (currentOperandTextEle) {
                 previousOperand = Number(currentOperandTextEle);
@@ -67,6 +69,7 @@ const calculator = (() => {
         compute();
     }
     const sqRoot = () => {
+        if (!currentOperandTextEle && !previousOutput) {return;}
         if (operator) {compute()};
         if (currentOperandTextEle) {
                 previousOperand = Number(currentOperandTextEle);
@@ -163,8 +166,3 @@ equals.addEventListener('click', (event) => {
     calculator.compute();
     calculator.updateDisplay();
 });
-
-
-curr.addEventListener('click', (event) => {
-    console.log(calculator);
-})
