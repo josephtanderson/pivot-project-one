@@ -5,6 +5,8 @@
     --output-bg: #333333aa;
     --btn-font-color: #ffffff;
     --hover-btn-font-color: #000000;
+    --btn-click-bg: #75757544;
+    --click-btn-font-color: #000000;
     box-sizing: border-box;
     font-family:Arial, Helvetica, sans-serif;
     font-weight: normal;
@@ -61,6 +63,11 @@ body {
 .calculator-grid > button:hover {
     background-color: var(--btn-hover-bg);
     color: var(--hover-btn-font-color);
+}
+
+.calculator-grid > button:active {
+    background-color: var(--btn-click-bg);
+    color: var(--click-btn-font-color);
 }
 
 .output {

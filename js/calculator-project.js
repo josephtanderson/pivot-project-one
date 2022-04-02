@@ -1,133 +1,170 @@
 const allClear = document.getElementById("clear");
 const numbers = document.querySelectorAll("[number-btn]");
 const operators = document.querySelectorAll("[operator-btn]");
+const square = document.getElementById("square");
+const squareRoot = document.getElementById("square-root");
 const del = document.querySelector("[del-btn]");
 const equals = document.getElementById("equals");
 const prev = document.getElementById("previous");
 const curr = document.getElementById("current");
 
-class Calculator{
-    operator = "";
-    previousOperator = "";
-    previousOutput= "";
-    previousOperand = "";
-    currentOperand = "";
-    constructor(previousOperandTextEle = "", currentOperandTextEle = "") {
-        this.previousOperandTextEle = previousOperandTextEle;
-        this.currentOperandTextEle = currentOperandTextEle;
-    }
-    clear() {
-        if (this.currentOperandTextEle === "") {
-            this.previousOperandTextEle = "";
-            this.currentOperandTextEle = "";
-            this.currentOperand = "";
-            this.previousOperand = "";
-            this.operator = "";
-            this.previousOutput = "";
-            this.previousOperation = "";
+const calculator = (() => {
+    let operator = "";
+    let previousOperator = "";
+    let previousOutput= "";
+    let previousOperand = "";
+    let currentOperand = "";
+    let previousOperandTextEle = "";
+    let currentOperandTextEle = "";
+    const clear = () => {
+        if (currentOperandTextEle === "") {
+            previousOperandTextEle = "";
+            currentOperandTextEle = "";
+            currentOperand = "";
+            previousOperand = "";
+            operator = "";
+            previousOutput = "";
+            previousOperation = "";
         } else {
-            this.currentOperandTextEle = "";
+            currentOperandTextEle = "";
         }
+    };
+    const remove = () => {
+        if (currentOperandTextEle === "" && operator) {
+            operator = "";
+            currentOperandTextEle = previousOperand.toString() + "/";
+            previousOperand = "";
+            previousOperandTextEle = "";
+        }
+        currentOperandTextEle = currentOperandTextEle.slice(0, -1);
     }
-    delete(){
-        if (this.currentOperandTextEle === "" && this.operator) {
-            this.operator = "";
-            this.currentOperandTextEle = this.previousOperand.toString() + "/";
-            this.previousOperand = "";
-            this.previousOperandTextEle = "";
+    const appendNumber = (num) => {
+        if (!operator && currentOperandTextEle === "") {
+            clear();
         }
-        this.currentOperandTextEle = this.currentOperandTextEle.slice(0, -1);
-    }
-    appendNumber(num){
-        if (!this.operator && this.currentOperandTextEle === "") {
-            this.clear();
-        }
-        if (num === "." && this.currentOperandTextEle.includes(".")) {
+        if (num === "." && currentOperandTextEle.includes(".")) {
         } else {
-            this.currentOperandTextEle += num;
+            currentOperandTextEle += num;
+            console.log(currentOperandTextEle)
         }
     }
-    chooseOperation(operator){
-        if (this.operator) {this.compute()};
-        if (this.currentOperandTextEle) {
-                this.previousOperand = Number(this.currentOperandTextEle);
-                this.currentOperandTextEle = "";
+    const chooseOperation = (op) => {
+        if (operator) {compute()};
+        if (currentOperandTextEle) {
+                previousOperand = Number(currentOperandTextEle);
+                currentOperandTextEle = "";
             }
-        this.operator = operator;
+        operator = op;
     }
-    compute()
-    {if (!this.operator && this.currentOperandTextEle === "") {
-        this.currentOperandTextEle = this.currentOperand.toString();
-        this.operator = this.previousOperator;
+    const square = () => {
+        if (operator) {compute()};
+        if (currentOperandTextEle) {
+                previousOperand = Number(currentOperandTextEle);
+                currentOperandTextEle = "";
+            }
+        currentOperandTextEle = previousOperand;
+        operator = "x";
+        compute();
     }
-    this.currentOperand = Number(this.currentOperandTextEle);
-    if (this.operator === "+") {
-        this.previousOperand = this.previousOperand + this.currentOperand;
-    } else if (this.operator === "-") {
-        this.previousOperand = this.previousOperand - this.currentOperand;
-    } else if (this.operator === "x") {
-        this.previousOperand = this.previousOperand * this.currentOperand;
-    } else if (this.operator === "÷") {
-        this.previousOperand = this.previousOperand / this.currentOperand;
-    } else {
-        this.previousOperand = this.currentOperand;
+    const sqRoot = () => {
+        if (operator) {compute()};
+        if (currentOperandTextEle) {
+                previousOperand = Number(currentOperandTextEle);
+                currentOperandTextEle = "";
+            }
+        previousOperand = Math.sqrt(previousOperand);
+        previousOutput = previousOperand.toString();
+        currentOperandTextEle = "";
+        previousOperator = operator;
+        operator = "";
     }
-    // switch (this.operator) {
-    //     case "+":
-    //         this.previousOperand = this.previousOperand + this.currentOperand;
-    //         break;
-    //     case "-":
-    //         this.previousOperand = this.previousOperand - this.currentOperand;
-    //         break;
-    //     case "x":
-    //         this.previousOperand = this.previousOperand * this.currentOperand;
-    //         break;
-    //     case "÷":
-    //         this.previousOperand = this.previousOperand / this.currentOperand;
-    //         break;
-    //     default:
-    //         this.previousOperand = this.currentOperand;
+    const compute = () => {
+    if (!operator && currentOperandTextEle === "") {
+        if (!previousOperand) {return}
+        currentOperandTextEle = currentOperand.toString();
+        operator = previousOperator;
+    }
+    currentOperand = Number(currentOperandTextEle);
+    // if (operator === "+") {
+    //     previousOperand = previousOperand + currentOperand;
+    // } else if (operator === "-") {
+    //     previousOperand = previousOperand - currentOperand;
+    // } else if (operator === "x") {
+    //     previousOperand = previousOperand * currentOperand;
+    // } else if (operator === "÷") {
+    //     previousOperand = previousOperand / currentOperand;
+    // } else {
+    //     previousOperand = currentOperand;
     // }
-    this.previousOutput = this.previousOperand.toString();
-    this.currentOperandTextEle = "";
-    this.previousOperator = this.operator;
-    this.operator = "";
+    switch (operator) {
+        case "+":
+            previousOperand = previousOperand + currentOperand;
+            break;
+        case "-":
+            previousOperand = previousOperand - currentOperand;
+            break;
+        case "x":
+            previousOperand = previousOperand * currentOperand;
+            break;
+        case "÷":
+            previousOperand = previousOperand / currentOperand;
+            break;
+        default:
+            previousOperand = currentOperand;
     }
-}
+    previousOutput = previousOperand.toString();
+    currentOperandTextEle = "";
+    previousOperator = operator;
+    operator = "";
+    }
 
-const calcExample = new Calculator();
+    const updateDisplay = () => {
+        prev.textContent = previousOutput;
+        curr.textContent = previousOperand.toString() +" "+operator+" "+currentOperandTextEle;
+    };
 
-function updateDisplay() {
-    prev.textContent = calcExample.previousOutput;
-    curr.textContent = calcExample.previousOperand.toString() +" "+calcExample.operator+" "+calcExample.currentOperandTextEle.toString();
-};
-updateDisplay();
+
+    return { updateDisplay, appendNumber, chooseOperation, clear, remove, compute, square, sqRoot }
+})();
+
+
+calculator.updateDisplay();
 
 for (let i=0;i<numbers.length; i++) {
     numbers.item(i).addEventListener('click', (event) => {
-        calcExample.appendNumber(event.target.innerText);
-        updateDisplay();
+        calculator.appendNumber(event.target.innerText);
+        calculator.updateDisplay();
     });
 };
 for (let i=0; i<operators.length; i++) {
     operators.item(i).addEventListener('click', (event) => {
-        calcExample.chooseOperation(event.target.innerText);
-        updateDisplay();
+        calculator.chooseOperation(event.target.innerText);
+        calculator.updateDisplay();
     });
 };
+square.addEventListener('click', (event)=>{
+    calculator.square();
+    calculator.updateDisplay();
+})
+
+squareRoot.addEventListener('click', (event)=>{
+    calculator.sqRoot();
+    calculator.updateDisplay();
+})
 allClear.addEventListener('click', (event) => {
-    calcExample.clear();
-    updateDisplay();
+    calculator.clear();
+    calculator.updateDisplay();
 });
 del.addEventListener('click', (event) => {
-    calcExample.delete();
-    updateDisplay();
+    calculator.remove();
+    calculator.updateDisplay();
 });
 equals.addEventListener('click', (event) => {
-    calcExample.compute();
-    updateDisplay();
+    calculator.compute();
+    calculator.updateDisplay();
 });
 
+
 curr.addEventListener('click', (event) => {
-    console.log(calcExample);
+    console.log(calculator);
 })
